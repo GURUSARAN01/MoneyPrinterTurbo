@@ -7,7 +7,8 @@
   "fps": 30,
   "assets": {
     "fontBold": "fonts/BeVietnamPro-Bold.ttf",
-    "fontMedium": "fonts/BeVietnamPro-Medium.ttf"
+    "fontMedium": "fonts/BeVietnamPro-Medium.ttf",
+    "narration": "narration/zombie-flight-eric.mp3"
   },
   "scenes": [
     {
