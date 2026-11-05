@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "id": "zombie-flight",
+  "title": "What If a Zombie Apocalypse Started on Your Flight?",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "assets": {"fontBold": "fonts/BeVietnamPro-Bold.ttf", "fontMedium": "fonts/BeVietnamPro-Medium.ttf"},
+  "scenes": [
+    {"id": "uneasy", "durationFrames": 105, "background": "cabin-night", "action": "anxious", "characters": ["maya", "eli", "noah"], "eyebrow": "A MIDNIGHT FLIGHT", "headline": ["ZOMBIES.", "ON YOUR FLIGHT."], "caption": "Something is wrong in row 13.", "accent": "#FFD685"},
+    {"id": "infection", "durationFrames": 135, "background": "cabin-night", "action": "infected", "characters": ["maya", "eli", "noah"], "eyebrow": "THEN HE STANDS UP", "headline": ["THAT’S NOT", "TURBULENCE."], "caption": "One passenger. A very bad feeling.", "accent": "#B7E1AC"},
+    {"id": "blackout", "durationFrames": 90, "background": "cabin-night", "action": "flicker", "characters": ["maya", "eli", "noah"], "eyebrow": "35,000 FEET ABOVE THE GROUND", "headline": ["LIGHTS OUT.", "HEART RATE UP."], "caption": "And now the cabin goes dark.", "accent": "#FF927B"},
+    {"id": "decision", "durationFrames": 90, "background": "cabin-night", "action": "freeze", "characters": ["maya", "eli", "noah"], "eyebrow": "PAUSE. YOUR MOVE.", "headline": ["WHAT WOULD", "YOU DO?"], "caption": "Stay quiet. Find help. Make a plan.", "accent": "#FFD685"}
+  ]
+}
