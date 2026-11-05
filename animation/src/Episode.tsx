@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {AbsoluteFill, cancelRender, continueRender, delayRender, interpolate, spring, staticFile, useCurrentFrame} from 'remotion';
-import {Character} from './art/Character';
+import {Character} from './art/StickCharacter';
 import {Cabin, Seat} from './art/Cabin';
 import {durationInFrames, sceneAtFrame, type Manifest, type Scene} from './manifest';
 
