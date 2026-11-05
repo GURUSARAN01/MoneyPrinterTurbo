@@ -8,7 +8,7 @@ export type Scene = {
 };
 export type Manifest = {
   version: 1; id: string; title: string; width: 1080; height: 1920; fps: 30;
-  assets: {fontBold: string; fontMedium: string}; scenes: Scene[];
+  assets: {fontBold: string; fontMedium: string; narration?: string}; scenes: Scene[];
 };
 
 const object = (v: unknown): v is Record<string, unknown> => !!v && typeof v === 'object' && !Array.isArray(v);
@@ -30,10 +30,14 @@ export function parseManifest(value: unknown): Manifest {
   requireValue(value.width === 1080 && value.height === 1920, 'dimensions must be 1080x1920');
   requireValue(value.fps === 30, 'fps must be 30');
   requireValue(object(value.assets), 'assets are required');
-  onlyKeys(value.assets, ['fontBold','fontMedium'], 'assets');
+  onlyKeys(value.assets, ['fontBold','fontMedium','narration'], 'assets');
   for (const name of ['fontBold','fontMedium']) {
     const asset = value.assets[name];
     requireValue(text(asset, 200) && /^[a-zA-Z0-9_/-]+\.(ttf|woff2)$/.test(asset) && !asset.startsWith('/') && !asset.split('/').includes('..'), `invalid local asset: ${name}`);
+  }
+  if (value.assets.narration !== undefined) {
+    const narration = value.assets.narration;
+    requireValue(text(narration, 200) && /^[a-zA-Z0-9_/-]+\.(mp3|wav|m4a)$/.test(narration) && !narration.startsWith('/') && !narration.split('/').includes('..'), 'invalid local narration asset');
   }
   requireValue(Array.isArray(value.scenes) && value.scenes.length >= 1 && value.scenes.length <= 12, 'provide 1–12 scenes');
   const ids = new Set<string>();
