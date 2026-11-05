@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {AbsoluteFill, cancelRender, continueRender, delayRender, interpolate, spring, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Audio, cancelRender, continueRender, delayRender, interpolate, spring, staticFile, useCurrentFrame} from 'remotion';
 import {Character} from './art/StickCharacter';
 import {Cabin, Seat} from './art/Cabin';
 import {durationInFrames, sceneAtFrame, type Manifest, type Scene} from './manifest';
@@ -131,6 +131,7 @@ export const Episode: React.FC<{manifest:Manifest}> = ({manifest}) => {
   const transition=index>0 && scene.action!=='freeze'?lerp(localFrame,[0,8],[0,1]):1;
   const previous=manifest.scenes[index-1];
   return <AbsoluteFill style={{background:ink,fontFamily:'Flight, sans-serif'}}>
+    {manifest.assets.narration && <Audio src={staticFile(manifest.assets.narration)} />}
     {transition<1 && previous && <SceneView scene={previous} frame={previous.durationFrames-1} index={index-1}/>}
     <AbsoluteFill style={{opacity:transition,transform:`translateX(${(1-transition)*22}px)`}}>
       <SceneView scene={scene} frame={localFrame} index={index} freezeFrame={previous?.durationFrames?previous.durationFrames-1:89}/>

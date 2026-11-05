@@ -3,3 +3,6 @@ out/
 .cache/
 .remotion/
 *.tsbuildinfo
+
+# Approved narration is staged locally and kept out of source control.
+public/narration/
