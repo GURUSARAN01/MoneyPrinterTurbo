@@ -38,7 +38,7 @@ try {
     pendingOutput='';
     const receipt={
       title:manifest.title,output,frames:composition.durationInFrames,width:composition.width,height:composition.height,fps:composition.fps,
-      narration:false,audio:false,renderer:'remotion',version:'4.0.540',
+      narration:Boolean(manifest.assets.narration),audio:Boolean(manifest.assets.narration),renderer:'remotion',version:'4.0.540',
       manifestSha256:createHash('sha256').update(JSON.stringify(manifest)).digest('hex'),
       assetSha256:await validateAssets(manifest),videoSha256:createHash('sha256').update(await readFile(output)).digest('hex'),
       manifest,
